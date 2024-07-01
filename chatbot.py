@@ -4,17 +4,19 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import HuggingFaceEndpoint
-import wikipedia
 from duckduckgo_search import DDGS
+from langchain_community.retrievers import WikipediaRetriever
+
+retriver = WikipediaRetriever()
 
 load_dotenv()
 api_key = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
 client = HuggingFaceEndpoint(repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1", token=api_key)
 
-def search_wikipedia(query, sentences=2):
+def search_wikipedia(query):
     try:
-        return wikipedia.summary(query, sentences=sentences)
+        return retriver.invoke(query)
     except:
         return "No relevant information found on Wikipedia."
 

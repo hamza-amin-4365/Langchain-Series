@@ -11,7 +11,7 @@ retriver = WikipediaRetriever()
 load_dotenv()
 api_key = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
-# Custom StreamHandler for Streamlit
+
 class StreamlitCallbackHandler:
     def __init__(self, container):
         self.container = container

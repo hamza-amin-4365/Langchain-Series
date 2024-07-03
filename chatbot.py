@@ -1,3 +1,7 @@
+#######################################################
+# Streamlit app = Streaming + Wikipedia + DuckDuckGo
+#######################################################
+
 import os
 from dotenv import load_dotenv
 import streamlit as st

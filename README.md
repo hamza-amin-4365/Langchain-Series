@@ -10,7 +10,7 @@ To use the code in this repository, follow these steps:
 1. Clone the repository to your local machine:
 
     ```shell
-    git clone https://github.com/hamza-amin-4365/lang-graph.git
+    git clone https://github.com/hamza-amin-4365/AI-Coder.git
     ```
 
 2. Install the required dependencies:

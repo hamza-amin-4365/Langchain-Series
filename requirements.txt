@@ -1,0 +1,10 @@
+langchain
+langchain_community
+huggingface_hub
+duckduckgo_search
+streamlit
+python-dotenv
+pytest
+python-tavily
+transformers
+unittest

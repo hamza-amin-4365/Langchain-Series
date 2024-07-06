@@ -1,5 +1,4 @@
-# Langchain-Series
-## Code Description
+## Description
 
 This repository contains a collection of chatbots, agents, and retrievers developed using langchain and open-source llms. These components are designed to enhance natural language processing capabilities and improve conversational experiences.
 
@@ -10,7 +9,7 @@ To use the code in this repository, follow these steps:
 1. Clone the repository to your local machine:
 
     ```shell
-    git clone https://github.com/hamza-amin-4365/AI-Coder.git
+    git clone https://github.com/hamza-amin-4365/Langchain-Series.git
     ```
 
 2. Install the required dependencies:

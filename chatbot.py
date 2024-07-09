@@ -13,7 +13,7 @@ from typing import Any
 retriver = WikipediaRetriever()
 
 load_dotenv()
-api_key = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+api_key = os.getenv("huggingfacehub_api_token")
 
 
 class StreamlitCallbackHandler:

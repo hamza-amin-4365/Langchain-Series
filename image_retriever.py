@@ -1,13 +1,13 @@
-from icrawler.builtin import GoogleImageCrawler
+from icrawler.builtin import GoogleImageCrawler, BaiduImageCrawler,BingImageCrawler
 
-def download_images(keyword, max_num=10):
-    google_crawler = GoogleImageCrawler(storage={'root_dir': f'./images/{keyword}'})
+def DownloadImages(keyword, max_num=10):
+    google_crawler = BingImageCrawler(storage={'root_dir': f'./images/{keyword}'})
     google_crawler.crawl(keyword=keyword, max_num=max_num)
 
 # Usage
 input_keyword = input("Enter the keyword: ")
 res = input_keyword
-download_images(res, max_num=5)
+DownloadImages(res, max_num=5)
 
 # from icrawler.builtin import GoogleImageCrawler
 # from icrawler import ImageDownloader
@@ -21,7 +21,7 @@ download_images(res, max_num=5)
 #             return None
 #         return super(ByjusFilter, self).get_filename(task, default_ext)
 
-# def download_images(keyword, max_num=10):
+# def DownloadImages(keyword, max_num=10):
 #     google_crawler = GoogleImageCrawler(
 #         downloader_cls=ByjusFilter,
 #         storage={'root_dir': f'./images/{keyword}'}
@@ -35,4 +35,4 @@ download_images(res, max_num=5)
 # if __name__ == "__main__":
 #     while True:
 #         search_topic = input("input ur query: ")
-#         download_images(search_topic, max_num=5)
+#         DownloadImages(search_topic, max_num=5)

@@ -35,7 +35,7 @@ llm = HuggingFaceEndpoint(
 )
 
 # Define Tavily retriever function
-def tavily_search(query):
+def TavilySearch(query):
     try:
         results = tavily_retriever.invoke(query)
         if isinstance(results, list) and results:
@@ -49,7 +49,7 @@ def tavily_search(query):
 tools = [
     Tool(
         name='TavilySearch',
-        func=tavily_search,
+        func=TavilySearch,
         description="Useful for searching the internet using Tavily AI for high-quality information"
     ),
     Tool(

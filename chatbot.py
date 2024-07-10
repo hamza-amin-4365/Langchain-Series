@@ -27,18 +27,18 @@ class StreamlitCallbackHandler:
 
 client = InferenceClient(model="mistralai/Mixtral-8x7B-Instruct-v0.1", token=api_key)
 
-def search_wikipedia(query):
+def SearchWikipedia(query):
     try:
         return retriver.invoke(query)
     except:
         return "No relevant information found on Wikipedia."
 
-def search_duckduckgo(query, num_results=3):
+def SearchDuckDuckGo(query, num_results=3):
     with DDGS() as ddgs:
         results = [r for r in ddgs.text(query, max_results=num_results)]
     return "\n".join([f"Title: {r['title']}\nSnippet: {r['body']}" for r in results])
 
-def generate_response(prompt, wiki_info, ddg_info, stream_container):
+def GenerateResponse(prompt, wiki_info, ddg_info, stream_container):
     combined_input = f"""Based on the following information:
 
 Wikipedia: '{wiki_info}'
@@ -74,10 +74,10 @@ if prompt := st.chat_input("What would you like to know?"):
 
     with st.chat_message("assistant"):
         with st.spinner("Searching Wikipedia and DuckDuckGo..."):
-            wiki_info = search_wikipedia(prompt)
-            ddg_info = search_duckduckgo(prompt)
+            wiki_info = SearchWikipedia(prompt)
+            ddg_info = SearchDuckDuckGo(prompt)
         
         stream_container = st.empty()
-        response = generate_response(prompt, wiki_info, ddg_info, stream_container)
+        response = GenerateResponse(prompt, wiki_info, ddg_info, stream_container)
         
     st.session_state.messages.append({"role": "assistant", "content": response})

@@ -43,7 +43,7 @@ if __name__ == "__main__":
 """
         return test_code
 
-    def test_code(self, code: str) -> bool:
+    def TestCode(self, code: str) -> bool:
         # Write the code to a temporary file
         with open("generated_code.py", "w") as f:
             f.write(code)
@@ -74,7 +74,7 @@ if __name__ == "__main__":
             # If input is code, validate and correct it
             code = input_text
             while True:
-                if self.test_code(code):
+                if self.TestCode(code):
                     break
                 else:
                     error_message = self.GetErrorMessage()

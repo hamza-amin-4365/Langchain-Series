@@ -1,38 +1,27 @@
-from icrawler.builtin import GoogleImageCrawler, BaiduImageCrawler,BingImageCrawler
+from icrawler.builtin import GoogleImageCrawler,BaiduImageCrawler,BingImageCrawler
+import time
+import random
 
 def DownloadImages(keyword, max_num=10):
-    google_crawler = BingImageCrawler(storage={'root_dir': f'./images/{keyword}'})
-    google_crawler.crawl(keyword=keyword, max_num=max_num)
+    google_crawler = BingImageCrawler(
+        feeder_threads=1,
+        parser_threads=1,
+        downloader_threads=1,
+        storage={'root_dir': f'./images/{keyword}'})
+    
+    try:
+        google_crawler.crawl(
+            keyword=keyword, 
+            max_num=max_num,
+            min_size=(200,200),
+            max_size=None,
+            file_idx_offset=0
+        )
+        time.sleep(random.uniform(1, 3))  # Random delay between 1 and 3 seconds
+    except Exception as e:
+        print(f"An error occurred while crawling for '{keyword}': {str(e)}")
 
 # Usage
 input_keyword = input("Enter the keyword: ")
-res = input_keyword
-DownloadImages(res, max_num=5)
+DownloadImages(input_keyword, max_num=10)
 
-# from icrawler.builtin import GoogleImageCrawler
-# from icrawler import ImageDownloader
-# import re
-
-# class ByjusFilter(ImageDownloader):
-#     def get_filename(self, task, default_ext):
-#         url = task['file_url']
-#         if 'byjus' in url.lower():
-#             self.logger.info('Byju\'s image detected, skipping: %s', url)
-#             return None
-#         return super(ByjusFilter, self).get_filename(task, default_ext)
-
-# def DownloadImages(keyword, max_num=10):
-#     google_crawler = GoogleImageCrawler(
-#         downloader_cls=ByjusFilter,
-#         storage={'root_dir': f'./images/{keyword}'}
-#     )
-#     google_crawler.crawl(
-#         keyword=keyword + ' -site:byjus.com',  # Exclude byjus.com from search
-#         max_num=max_num,
-#     )
-
-# # Usage
-# if __name__ == "__main__":
-#     while True:
-#         search_topic = input("input ur query: ")
-#         DownloadImages(search_topic, max_num=5)

@@ -119,8 +119,8 @@ def ProcessQuery(query):
     result = agent_executor.run(query)
     return json.loads(result)
 
-####################################################################################################################
-#     print(main integrated code)
+# Example usage: Run usage.py to see the output
+################################################################################################################################
 '''
 
 # This snippet uses the Google Generative AI API to generate captions for the images.

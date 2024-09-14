@@ -34,7 +34,7 @@ To set up the project, follow these steps:
 1. **Clone the repository**:
     ```bash
     git clone https://github.com/hamza-amin-4365/Langchain-Series.git
-    cd Langchain-Series/temp_repo
+    cd Langchain-Series
     ```
 
 2. **Install the required packages**:
